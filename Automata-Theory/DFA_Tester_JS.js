@@ -976,6 +976,12 @@ function switchTab(tabName) {
         tabBtn.setAttribute('aria-selected', active ? 'true' : 'false');
         view.classList.toggle('hidden', !active);
     });
+
+    const regexCard = document.getElementById('regex-card');
+    if (regexCard) {
+        regexCard.classList.toggle('hidden', tabName === 'demo');
+    }
+
     if (tabName === 'dfa') {
         renderSVGGraph(getTraceFrameState());
         fitGraphToView();
