@@ -63,6 +63,12 @@
                         </svg>
                         <span class="tab-label">Pushdown Automata (PDA)</span>
                     </button>
+                    <button id="tab-demo" type="button" role="tab" aria-selected="false" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-semibold transition-ui focus-ring text-left">
+                        <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        <span class="tab-label">Video Demo</span>
+                    </button>
                 </nav>
             </div>
 
@@ -347,6 +353,18 @@
                                 <tbody id="pda-table-body" class="divide-y font-mono app-table-body"></tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-demo" class="view-panel hidden space-y-6 transition-ui">
+                <div class="panel-card rounded-2xl border p-6 shadow-sm flex flex-col transition-ui">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold">ATMTA Interactive Tracing System Demo</h3>
+                        <p class="text-sm app-muted">Watch this video to learn how to use the workspace effectively.</p>
+                    </div>
+                    <div class="flex justify-center w-full">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5HWHAk_-44c?si=0x3yFwc5v6kb3ZZD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-xl shadow-md border app-border w-full max-w-4xl" style="aspect-ratio: 16/9; height: auto;"></iframe>
                     </div>
                 </div>
             </div>

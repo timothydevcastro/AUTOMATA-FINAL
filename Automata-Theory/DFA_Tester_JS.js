@@ -444,6 +444,7 @@ function bindGlobalEvents() {
     document.getElementById('tab-dfa').addEventListener('click', () => switchTab('dfa'));
     document.getElementById('tab-cfg').addEventListener('click', () => switchTab('cfg'));
     document.getElementById('tab-pda').addEventListener('click', () => switchTab('pda'));
+    document.getElementById('tab-demo').addEventListener('click', () => switchTab('demo'));
     document.getElementById('btn-theme-toggle').addEventListener('click', toggleTheme);
     document.getElementById('btn-add-row').addEventListener('click', addTestRow);
     document.getElementById('btn-clear-all').addEventListener('click', clearAllTestRows);
@@ -967,7 +968,7 @@ function switchAlphabet(type) {
 
 function switchTab(tabName) {
     currentTab = tabName;
-    ['dfa', 'cfg', 'pda'].forEach(t => {
+    ['dfa', 'cfg', 'pda', 'demo'].forEach(t => {
         const tabBtn = document.getElementById(`tab-${t}`);
         const view = document.getElementById(`view-${t}`);
         const active = t === tabName;
