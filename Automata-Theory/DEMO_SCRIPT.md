@@ -53,67 +53,62 @@ Use this script as a dual-monitor or split-screen companion while recording. It 
 
 ---
 
-### Chapter 4: Sequence Tester & Auto-Generator
-*Focus: Add rows, validate single/all, validation spinners, BFS/DFS auto-generator.*
+### Chapter 4: Manual String Validation & Live Graph Transition
+*Focus: Adding test cases, typing a string, manual validation, and live transition visualization on the DFA.*
 
 | Visual Action (What to show) | Voiceover Narration (What to say) |
 | :--- | :--- |
-| **[2:32 - Click Add Test Case]**<br>Scroll down to the **Sequence Tester**. Click **+ Add Test Case** to create a new row. | "Below the graph is the Sequence Tester. You can add custom test cases with a click of a button to validate multiple strings." |
-| **[2:40 - Input a custom string and validate]**<br>In the newly added row, type `aababaa` and press **Enter** (or click the **Validate** button). Watch the spinner and the final green badge. | "Let's type in `aababaa` and hit Enter. Watch how the row lights up with an amber glow, displays a dynamic validation spinner, and then reveals a green checkmark indicating the string is accepted, along with its full state-transition path." |
-| **[3:00 - Show an invalid validation]**<br>In the next row, type `aabac` and click **Validate**. Watch the red badge. | "What about invalid input? Typing a string with an invalid character like `c` instantly flags it, highlighting where the transition broke." |
-| **[3:15 - Show row controls]**<br>Hover over the individual clear button `↺` and click it, showing the field emptying. Then click the `×` button to delete the row. | "Each row is fully controlled, featuring an individual clear button to wipe the text field and a delete button to keep your workspace clean." |
-| **[3:25 - Open Auto-Generator Panel]**<br>Click the purple **Auto-Generate** button. The generator panel slides open. | "To speed up testing, we've built a robust, algorithmic Auto-Generator." |
-| **[3:35 - Run Auto-Generator]**<br>Select **6 strings** count, leave Min/Max as is, and click **Generate**. Watch the rows populate and the status message appear. | "By defining a minimum and maximum length, our system performs an optimized BFS and DFS search through the active DFA. It generates a balanced, shuffled mix of exactly half accepted and half rejected test strings. Let's click Generate." |
-| **[3:50 - Click Validate All Cases]**<br>Click the blue **Validate All Cases** button. Watch each row validate sequentially with the spinner and turn into red/green badges. | "Now, click 'Validate All Cases'. The simulator runs through each generated test string one by one, animating the active row in amber before showing the final result." |
+| **[2:32 - Click Add Test Case]**<br>Scroll down to the **Sequence Tester** section. Click the **+ Add Test Case** button. | "Scroll down to the Sequence Tester. Click '+ Add Test Case' to create a new input field." |
+| **[2:42 - Input a custom string]**<br>Type a valid test string, such as `aababaa`, into the input box. | "Type a test string into the field—for example, `aababaa`." |
+| **[2:50 - Click Validate and watch the Live Transition]**<br>Click **Validate** (or press Enter). Immediately look up at the DFA graph to show the states highlighting in amber as the transition runs, ending with a green success badge. | "Click Validate. The DFA graph immediately animates, highlighting each active state in amber as it processes the character. The row updates with a green checkmark showing the string is accepted." |
 
 ---
 
-### Chapter 5: Step-by-Step Tracing & Synchronized Highlights
-*Focus: Trace replay, play/pause animation, character bar highlights, autoscrolling table.*
+### Chapter 5: Auto-Generator, Batch Validation, & Dock-to-Side
+*Focus: Algorithmic string generation, batch testing, and split-screen workflow layout.*
 
 | Visual Action (What to show) | Voiceover Narration (What to say) |
 | :--- | :--- |
-| **[4:10 - Load a string for Replay]**<br>In the sidebar, point to the **Test History** list (showing the records of validated strings). In the graph header, select one of the accepted strings (like `aababaa`) from the **Replay** dropdown. | "Every test string is recorded in the Sidebar's Test History. To analyze a specific run, simply pick it from the Replay dropdown to load the active trace." |
-| **[4:25 - Pause the animation and point to components]**<br>The animation will automatically start playing. Click the **⏸ Pause** button in the trace controls. | "When loaded, a dedicated trace playback controller appears. I'll pause it here so we can look at the fine details." |
-| **[4:38 - Point out active badges]**<br>Point to the amber **Validating: [string]** badge that popped up above the SVG canvas. | "First, notice the pulsing amber validation badge. It clearly displays the active string being evaluated." |
-| **[4:48 - Highlight the Synchronized Character Bar]**<br>Point to the **Computation Breakdown** panel (which automatically opened). Hover over the character bar where past letters are faded, the current is amber, and future are dark. | "At the same time, the Computation Breakdown panel reveals a synchronized character bar. As the machine processes the string, past characters fade out, the currently active character glows in amber, and future characters wait in queue." |
-| **[5:05 - Step through manually]**<br>Click the **Next →** button twice, then the **← Prev** button once. Observe the node highlighting (amber fill/stroke) on the SVG canvas. | "We can step through the trace manually. Watch the SVG canvas: the active state and active transition edge light up in high-contrast amber, matching our exact position in the string." |
-| **[5:20 - Highlight the Autoscrolling Delta Table]**<br>Scroll down slightly so the **Computation Table** is fully visible. Step forward and watch the table row auto-scroll and highlight. | "Below the character bar, the formal Delta transition table shows every evaluation step. The active step highlights and automatically scrolls smoothly into view, ensuring perfect visibility for long strings." |
-| **[5:35 - Hit Play to finish]**<br>Click **▶ Play** again and watch the animation play to the end, showing the final state turning green (Accept) and the sidebar updating. | "Let's resume the playback. As it reaches the end, the graph displays the final verdict—routing us smoothly to an accepting state." |
+| **[3:05 - Open Auto-Generator]**<br>Click the purple **Auto-Generate** button in the sequence tester header. | "To make testing more efficient, click the purple 'Auto-Generate' button to open the string generator panel." |
+| **[3:15 - Generate test cases]**<br>Set the string count to **6**, leave length presets as default, and click **Generate**. | "Select six strings and click Generate. The system automatically creates a balanced mix of accepted and rejected test strings." |
+| **[3:25 - Click Dock to Side]**<br>Click the green **Dock to Side** button in the Sequence Tester header. Watch the layout split side-by-side. | "Click 'Dock to Side'. The workspace transitions into a side-by-side layout, locking the DFA graph on the left while keeping your test cases visible on the right." |
+| **[3:35 - Click Validate All Cases]**<br>Click the blue **Validate All Cases** button. Watch each row validate and the DFA graph transitions light up. | "Click 'Validate All Cases'. The simulator runs through all inputs sequentially. You can watch the DFA graph highlight in real-time for each test string as they validate." |
+| **[3:50 - Click Undock]**<br>Click the orange **Undock** button to return the layout to stacked. | "Click Undock to restore the stacked layout." |
 
 ---
 
-### Chapter 6: The Split-Screen "Dock to Side" Layout
-*Focus: Responsive design, workspace flexibility, side-by-side mode.*
+### Chapter 6: Trace Replay, Manual Playback, & Computation Breakdown
+*Focus: History dropdown, manual animation controls (play/pause/prev/next), character queue, delta table, and test history.*
 
 | Visual Action (What to show) | Voiceover Narration (What to say) |
 | :--- | :--- |
-| **[5:50 - Click Dock to Side]**<br>Click the green **Dock to Side** button in the Sequence Tester header. Watch the layout smoothly transition side-by-side. | "If you are on a wider screen and want to test while keeping an eye on the graph, simply click 'Dock to Side'. The workspace instantly splits into a highly efficient side-by-side layout." |
-| **[6:05 - Scroll and show usability]**<br>Briefly scroll the sequence tester list on the right, showing that the graph on the left stays locked in view. | "Now you can run validations, step through traces, and analyze delta tables without ever losing sight of the transition graph. It's the ultimate productivity layout." |
-| **[6:18 - Undock the view]**<br>Click the orange **Undock** button. The screen snaps back to the stacked layout. | "Clicking 'Undock' snaps everything back into a clean, focused, stacked view." |
+| **[4:00 - Replay a specific string]**<br>Select `aababaa` from the **Replay** dropdown in the graph header. | "To inspect a specific string, select it from the Replay dropdown to load the active trace." |
+| **[4:10 - Pause and play the animation]**<br>The animation starts playing automatically. Click the **⏸ Pause** button, wait a second, then click **▶ Play**. | "The animation begins automatically. You can pause the execution at any point, and press Play to resume." |
+| **[4:22 - Use Next and Previous controls]**<br>Click the **Next →** button a few times to step forward. Then click **← Prev** to step back. | "You can also step through character by character. Click 'Next' to move forward, or 'Previous' to step back. The DFA graph updates instantly to show the current active state." |
+| **[4:35 - Show Computation Breakdown]**<br>Point your mouse to the **Computation Breakdown** panel. Highlight the character queue (past processed letters are faded, current letter is amber, future letters are dark). | "Look at the Computation Breakdown panel. The character bar shows the string queue: past characters are faded, the current active character glows in amber, and remaining characters wait in queue." |
+| **[4:50 - Scroll through the delta transition table]**<br>Scroll down slightly to the **Computation Table**. Step forward again and show the row highlighting and scrolling automatically. | "Below the character bar, the formal Delta transition table maps out each evaluation step. The active step highlights and automatically scrolls into view as the trace progresses." |
+| **[5:05 - View Test History]**<br>Move your mouse to the **Test History** section in the left sidebar to show the log of validated runs. Click the trash icon to show the clear history action. | "All validated strings are logged in the sidebar's Test History. You can click the clear history icon at any time to wipe the list." |
 
 ---
 
 ### Chapter 7: Context-Free Grammar (CFG) & Pushdown Automata (PDA) Layouts
-*Focus: CFG representation, PDA 2 preset, specialized curves, clean reject blocks, layered text.*
+*Focus: CFG production rules, PDA transition diagrams, stack operations, and delta matrices.*
 
 | Visual Action (What to show) | Voiceover Narration (What to say) |
 | :--- | :--- |
-| **[6:28 - Switch to CFG Tab]**<br>In the sidebar navigation, click on the **Context-Free Grammar (CFG)** button. | "Beyond DFAs, ATMTA fully supports CFGs and Pushdown Automata. Let's switch to the CFG tab to view the clean, formal production rules generated dynamically." |
-| **[6:40 - Switch to {0, 1} Preset]**<br>Go to the top bar and click the **Regex {0, 1}** preset button. | "Now, let's select the Regex zero-one preset in the header once again to load our second problem. This will allow us to showcase our most detailed workspace feature: Pushdown Automata." |
-| **[6:52 - Switch to PDA Tab]**<br>In the sidebar navigation, click on the **Pushdown Automata (PDA)** button. | "Now, click on the Pushdown Automaton tab. This loads the beautiful, custom-designed PDA transition graph." |
-| **[7:05 - Demonstrate the PDA layout details]**<br>Drag and zoom inside the PDA canvas. Point to the diamond-shaped READ blocks, the clean curved transition lines, stack operations `0, Z / 0Z`, and the aligned Reject blocks. | "Take a look at the level of detail here. This is a complex, multi-state PDA. The graph uses diamond-shaped READ blocks, square START and ACCEPT blocks, and custom, curved transition lines that prevent overlapping. Stack operations are clearly formatted as input, pop, slash, push." |
-| **[7:25 - Highlight the layered details and Reject alignment]**<br>Move the mouse to the REJECT blocks on the outer edges and highlight the layered label text. | "Notice how the REJECT blocks are perfectly aligned along the margins to keep the workspace organized, and all labels are layered cleanly so they are readable even in complex segments." |
-| **[7:38 - Point to the PDA Delta Matrix]**<br>Scroll down to show the **Formal Delta Transition Matrix**. | "Below the graph, the complete Formal Delta Transition Matrix is displayed, mapping out the machine's exact state behavior for academic rigor." |
+| **[5:20 - Switch to CFG Tab]**<br>In the left sidebar, click the **Context-Free Grammar (CFG)** button. | "Beyond DFAs, ATMTA supports CFGs. Click the CFG tab to view the formal production rules generated dynamically." |
+| **[5:32 - Load Regex {0, 1} and go to PDA tab]**<br>Click **Regex {0, 1}** preset in the header, then click the **Pushdown Automata (PDA)** tab in the sidebar. | "Select the Regex zero-one preset in the header, and click the Pushdown Automata tab in the sidebar." |
+| **[5:45 - Inspect PDA Graph]**<br>Drag and zoom inside the PDA canvas. Point to the diamond-shaped READ blocks, curved transitions, stack operations (`0, Z / 0Z`), and the aligned REJECT blocks on the outer edges. | "This loads the PDA transition graph. The layout uses diamond-shaped READ blocks, curved lines to prevent overlaps, and clearly formatted stack operations. REJECT blocks are aligned on the margins to keep the visualization clean." |
+| **[6:00 - Show PDA Transition Matrix]**<br>Scroll down below the graph to reveal the **Formal Delta Transition Matrix**. | "Below the graph, the complete Formal Delta Transition Matrix displays the machine's exact state behavior." |
 
 ---
 
 ### Chapter 8: Conclusion
-*Focus: Wrap-up, final visual high-point.*
+*Focus: Summary and wrap-up.*
 
 | Visual Action (What to show) | Voiceover Narration (What to say) |
 | :--- | :--- |
-| **[7:50 - Return to DFA Tab]**<br>Switch back to the **DFA** tab, click **⟲ Reset View** on the graph, and hover the mouse over the brand logo in the sidebar. | "ATMTA brings theoretical computer science to life through advanced simulation, responsive controls, and high-fidelity visuals. It is the ultimate sandbox for learning, testing, and visualizing formal languages. Thank you for watching!" |
+| **[6:15 - Return to DFA Tab]**<br>Switch back to the **DFA** tab, click **⟲ Reset View** on the graph, and hover the mouse over the logo in the sidebar. | "ATMTA provides interactive simulations, responsive layouts, and formal visualizers for automata and formal languages. Thank you for watching." |
 
 ---
 
