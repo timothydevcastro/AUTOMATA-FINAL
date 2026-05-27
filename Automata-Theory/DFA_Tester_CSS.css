@@ -74,9 +74,27 @@
     --spinner-color: #93c5fd;
 }
 
-@keyframes dashboardFadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* Premium Animations */
+@keyframes sidebarSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes mainContentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body,
@@ -86,9 +104,22 @@ body,
     color: var(--app-text);
 }
 
-/* Triggered by JS once DOM is ready — guarantees animation fires on every navigation */
-body.page-ready {
-    animation: dashboardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* Set starting states when the page is loading */
+body:not(.page-ready) aside {
+    opacity: 0;
+}
+body:not(.page-ready) .main-content-area {
+    opacity: 0;
+}
+
+/* Triggered once window load event fires */
+body.page-ready aside {
+    animation: sidebarSlideIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+body.page-ready .main-content-area {
+    animation: mainContentFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.25s; /* Begins beautifully as the sidebar finishes its slide-in */
 }
 
 code, pre {
