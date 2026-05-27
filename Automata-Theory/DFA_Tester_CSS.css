@@ -74,11 +74,17 @@
     --spinner-color: #93c5fd;
 }
 
+@keyframes dashboardFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 body,
 .app-body {
     font-family: 'Inter', sans-serif;
     background-color: var(--app-bg);
     color: var(--app-text);
+    animation: dashboardFadeIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 code, pre {

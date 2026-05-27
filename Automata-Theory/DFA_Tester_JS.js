@@ -819,8 +819,6 @@ function addTestRow() {
     const canRemove = testRowIds.length > 1;
     container.appendChild(createRowElement(id, canRemove));
     updateClearAllVisibility();
-    const input = document.getElementById(`input-${id}`);
-    if (input) input.focus();
 }
 
 function removeTestRow(id) {
