@@ -7,6 +7,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="DFA_Tester_CSS.css">
+    <style>
+        /* Hide body immediately before CSS/JS loads to prevent flash */
+        body { opacity: 0; }
+    </style>
+    <script>
+        // Fire fade-in as soon as DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('page-ready');
+        });
+    </script>
 </head>
 <body class="app-body min-h-screen flex flex-col lg:flex-row transition-ui">
 
