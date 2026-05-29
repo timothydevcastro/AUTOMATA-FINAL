@@ -1,74 +1,38 @@
+
 const automataData = {
     ab: {
         regex: "(aa+bb)(a+b)*(a+b+ab+ba)(a+b+ab+ba)*(aa+bab)*(a+b+aa)(a+b+bb+aa)",
         alphabet: ['a', 'b'],
         startState: 'S0',
         acceptStates: ['S8', 'S9', 'S10'],
-        dfa: [
-            { curr: 'S0', input: 'a', next: 'S1' },
-            { curr: 'S0', input: 'b', next: 'S2' },
-            { curr: 'S1', input: 'a', next: 'S3' },
-            { curr: 'S1', input: 'b', next: 'T' },
-            { curr: 'S2', input: 'a', next: 'T' },
-            { curr: 'S2', input: 'b', next: 'S3' },
-            { curr: 'T', input: 'a', next: 'T' },
-            { curr: 'T', input: 'b', next: 'T' },
-            { curr: 'S3', input: 'a', next: 'S4' },
-            { curr: 'S3', input: 'b', next: 'S5' },
-            { curr: 'S4', input: 'a', next: 'S6' },
-            { curr: 'S4', input: 'b', next: 'S7' },
-            { curr: 'S5', input: 'a', next: 'S6' },
-            { curr: 'S5', input: 'b', next: 'S7' },
-            { curr: 'S6', input: 'a', next: 'S8' },
-            { curr: 'S6', input: 'b', next: 'S9' },
-            { curr: 'S7', input: 'a', next: 'S10' },
-            { curr: 'S7', input: 'b', next: 'S9' },
-            { curr: 'S8', input: 'a', next: 'S8' },
-            { curr: 'S8', input: 'b', next: 'S9' },
-            { curr: 'S9', input: 'a', next: 'S10' },
-            { curr: 'S9', input: 'b', next: 'S9' },
-            { curr: 'S10', input: 'a', next: 'S8' },
-            { curr: 'S10', input: 'b', next: 'S9' }
-        ],
-        dfaBlocks: [
-            { id: 'S0', type: 'circle', label: 'S0', x: 100, y: 240, w: 50, h: 50 },
-            { id: 'S1', type: 'circle', label: 'S1', x: 300, y: 100, w: 50, h: 50 },
-            { id: 'S2', type: 'circle', label: 'S2', x: 300, y: 380, w: 50, h: 50 },
-            { id: 'T', type: 'circle', label: 'T', x: 300, y: 240, w: 50, h: 50 },
-            { id: 'S3', type: 'circle', label: 'S3', x: 500, y: 240, w: 50, h: 50 },
-            { id: 'S4', type: 'circle', label: 'S4', x: 640, y: 100, w: 50, h: 50 },
-            { id: 'S5', type: 'circle', label: 'S5', x: 640, y: 380, w: 50, h: 50 },
-            { id: 'S6', type: 'circle', label: 'S6', x: 780, y: 100, w: 50, h: 50 },
-            { id: 'S7', type: 'circle', label: 'S7', x: 780, y: 380, w: 50, h: 50 },
-            { id: 'S8', type: 'circle', label: 'S8', x: 920, y: 100, w: 50, h: 50 },
-            { id: 'S9', type: 'circle', label: 'S9', x: 920, y: 380, w: 50, h: 50 },
-            { id: 'S10', type: 'circle', label: 'S10', x: 1060, y: 240, w: 50, h: 50 }
-        ],
-        dfaLines: [
-            { from: 'S0', to: 'S1', label: 'a' },
-            { from: 'S0', to: 'S2', label: 'b' },
-            { from: 'S1', to: 'S3', label: 'a' },
-            { from: 'S1', to: 'T',  label: 'b',labelX:310 },
-            { from: 'S2', to: 'T',  label: 'a',labelX:310 },
-            { from: 'S2', to: 'S3', label: 'b' },
-            { from: 'T',  to: 'T',  label: 'a, b',isCustomPath: true,sideFrom: 'bottom',sideTo: 'right',  path: 'M 315 250 C 350 310, 380 250, 320 235', labelX: 350, labelY: 285   },
-            { from: 'S3', to: 'S4', label: 'a' },
-            { from: 'S3', to: 'S5', label: 'b' },
-            { from: 'S4', to: 'S6', label: 'a' },
-            { from: 'S4', to: 'S7', label: 'b',labelX:675, labelY: 160 },
-            { from: 'S5', to: 'S6', label: 'a',labelX:675, labelY: 320 },
-            { from: 'S5', to: 'S7', label: 'b' },
-            { from: 'S6', to: 'S8', label: 'a' },
-            { from: 'S6', to: 'S9', label: 'b' },
-            { from: 'S7', to: 'S10', label: 'a', isCustomPath: true, path: 'M 780 380 C 860 500, 980 500, 1060 265', labelX: 920, labelY: 480 },
-            { from: 'S7', to: 'S9', label: 'b' },
-            { from: 'S8', to: 'S8', label: 'a', labelY: 55},
-            { from: 'S8', to: 'S9', label: 'b',labelX:930},
-            { from: 'S9', to: 'S9', label: 'b', isCustomPath: true, path: 'M 910 380 C 890 440, 950 440, 930 400', labelX: 920, labelY: 435 },
-            { from: 'S9', to: 'S10', label: 'a', curve: 25, labelY: 300 },
-            { from: 'S10', to: 'S8', label: 'a', labelY: 160 },
-            { from: 'S10', to: 'S9', label: 'b', curve: 25, labelY: 330 }
-        ],
+        transitions: {
+            'S0': { 'a': 'S1', 'b': 'S2' },
+            'S1': { 'a': 'S3', 'b': 'T' },
+            'S2': { 'a': 'T', 'b': 'S3' },
+            'T': { 'a': 'T', 'b': 'T' },
+            'S3': { 'a': 'S4', 'b': 'S5' },
+            'S4': { 'a': 'S6', 'b': 'S7' },
+            'S5': { 'a': 'S6', 'b': 'S7' },
+            'S6': { 'a': 'S8', 'b': 'S9' },
+            'S7': { 'a': 'S10', 'b': 'S9' },
+            'S8': { 'a': 'S8', 'b': 'S9' },
+            'S9': { 'a': 'S10', 'b': 'S9' },
+            'S10': { 'a': 'S8', 'b': 'S9' }
+        },
+        nodes: {
+            'S0':  { x: 80,  y: 240 },
+            'S1':  { x: 220, y: 100 },
+            'S2':  { x: 220, y: 380 },
+            'T':   { x: 360, y: 240 },
+            'S3':  { x: 500, y: 240 },
+            'S4':  { x: 640, y: 100 },
+            'S5':  { x: 640, y: 380 },
+            'S6':  { x: 780, y: 100 },
+            'S7':  { x: 780, y: 380 },
+            'S8':  { x: 920, y: 100 },
+            'S9':  { x: 920, y: 380 },
+            'S10': { x: 1060, y: 240 }
+        },
         cfg: `S -> A B C D E F G\nA -> aa | bb\nB -> aB | bB | λ \nC -> a | b | ab | ba\nD -> aD | bD | abD | baD | λ \nE -> aaE | babE | λ \nF -> a | b | aa\nG -> a | b | bb | aa`,
         
         pda: [
@@ -181,92 +145,42 @@ const automataData = {
         alphabet: ['0', '1'],
         startState: 'S0',
         acceptStates: ['S7', 'S9', 'S11', 'S12', 'S13', 'S14', 'S15'],
-        dfa: [
-            { curr: 'S0', input: '1', next: 'S1' },
-            { curr: 'S0', input: '0', next: 'S2' },
-            { curr: 'S1', input: '1', next: 'S3' },
-            { curr: 'S1', input: '0', next: 'S4' },
-            { curr: 'S2', input: '1', next: 'S5' },
-            { curr: 'S2', input: '0', next: 'S6' },
-            { curr: 'S3', input: '1', next: 'S7' },
-            { curr: 'S3', input: '0', next: 'S8' },
-            { curr: 'S4', input: '1', next: 'S9' },
-            { curr: 'S4', input: '0', next: 'S6' },
-            { curr: 'S5', input: '1', next: 'S10' },
-            { curr: 'S5', input: '0', next: 'S8' },
-            { curr: 'S6', input: '1', next: 'S5' },
-            { curr: 'S6', input: '0', next: 'S11' },
-            { curr: 'S7', input: '1', next: 'S12' },
-            { curr: 'S7', input: '0', next: 'S13' },
-            { curr: 'S8', input: '1', next: 'S9' },
-            { curr: 'S8', input: '0', next: 'S6' },
-            { curr: 'S9', input: '1', next: 'S14' },
-            { curr: 'S9', input: '0', next: 'S13' },
-            { curr: 'S10', input: '1', next: 'S14' },
-            { curr: 'S10', input: '0', next: 'S8' },
-            { curr: 'S11', input: '1', next: 'S9' },
-            { curr: 'S11', input: '0', next: 'S11' },
-            { curr: 'S12', input: '1', next: 'S15' },
-            { curr: 'S12', input: '0', next: 'S13' },
-            { curr: 'S13', input: '1', next: 'S9' },
-            { curr: 'S13', input: '0', next: 'S11' },
-            { curr: 'S14', input: '1', next: 'S14' },
-            { curr: 'S14', input: '0', next: 'S13' },
-            { curr: 'S15', input: '1', next: 'S7' },
-            { curr: 'S15', input: '0', next: 'S13' }
-        ],
-        dfaBlocks: [
-            { id: 'S0', type: 'circle', label: 'S0', x: 80, y: 280, w: 50, h: 50 },
-            { id: 'S1', type: 'circle', label: 'S1', x: 220, y: 140, w: 50, h: 50 },
-            { id: 'S2', type: 'circle', label: 'S2', x: 220, y: 420, w: 50, h: 50 },
-            { id: 'S3', type: 'circle', label: 'S3', x: 380, y: 70, w: 50, h: 50 },
-            { id: 'S4', type: 'circle', label: 'S4', x: 380, y: 210, w: 50, h: 50 },
-            { id: 'S5', type: 'circle', label: 'S5', x: 380, y: 350, w: 50, h: 50 },
-            { id: 'S6', type: 'circle', label: 'S6', x: 380, y: 490, w: 50, h: 50 },
-            { id: 'S7', type: 'circle', label: 'S7', x: 560, y: 70, w: 50, h: 50 },
-            { id: 'S8', type: 'circle', label: 'S8', x: 560, y: 280, w: 50, h: 50 },
-            { id: 'S11', type: 'circle', label: 'S11', x: 560, y: 490, w: 50, h: 50 },
-            { id: 'S12', type: 'circle', label: 'S12', x: 740, y: 70, w: 50, h: 50 },
-            { id: 'S9', type: 'circle', label: 'S9', x: 740, y: 280, w: 50, h: 50 },
-            { id: 'S10', type: 'circle', label: 'S10', x: 740, y: 420, w: 50, h: 50 },
-            { id: 'S15', type: 'circle', label: 'S15', x: 920, y: 70, w: 50, h: 50 },
-            { id: 'S13', type: 'circle', label: 'S13', x: 920, y: 280, w: 50, h: 50 },
-            { id: 'S14', type: 'circle', label: 'S14', x: 1080, y: 280, w: 50, h: 50 }
-        ],
-        dfaLines: [
-            { from: 'S0', to: 'S1', label: '1' },
-            { from: 'S0', to: 'S2', label: '0' },
-            { from: 'S1', to: 'S3', label: '1' },
-            { from: 'S1', to: 'S4', label: '0' },
-            { from: 'S2', to: 'S5', label: '1' },
-            { from: 'S2', to: 'S6', label: '0' },
-            { from: 'S3', to: 'S7', label: '1' },
-            { from: 'S3', to: 'S8', label: '0' },
-            { from: 'S4', to: 'S9', label: '1' },
-            { from: 'S4', to: 'S6', label: '0',curve: 60, labelX: 360, labelY: 320  },
-            { from: 'S5', to: 'S10', label: '1' },
-            { from: 'S5', to: 'S8', label: '0' },
-            { from: 'S6', to: 'S5', label: '1', curve: 10 },
-            { from: 'S6', to: 'S11', label: '0' },
-            { from: 'S7', to: 'S12', label: '1' },
-            { from: 'S7', to: 'S13', label: '0' },
-            { from: 'S8', to: 'S9', label: '1' },
-            { from: 'S8', to: 'S6', label: '0' },
-            { from: 'S9', to: 'S14', label: '1',curve: 90, labelY: 335 },
-            { from: 'S9', to: 'S13', label: '0', curve: 25, labelY: 300 },
-            { from: 'S10', to: 'S14', label: '1', labelY: 360 },
-            { from: 'S10', to: 'S8', label: '0' },
-            { from: 'S11', to: 'S9', label: '1' },
-            { from: 'S11', to: 'S11', label: '0', isCustomPath: true, path: 'M 550 510 C 530 550, 590 550, 570 510', labelX: 560, labelY: 545 },
-            { from: 'S12', to: 'S15', label: '1' },
-            { from: 'S12', to: 'S13', label: '0' },
-            { from: 'S13', to: 'S9', label: '1', curve: 25,labelX: 820, labelY: 265  },
-            { from: 'S13', to: 'S11', label: '0' },
-            { from: 'S14', to: 'S14', label: '1', labelY: 235 },
-            { from: 'S14', to: 'S13', label: '0' },
-            { from: 'S15', to: 'S7', label: '1', isCustomPath: true, path: 'M 910 55 C 800 20, 680 20, 570 55', labelX: 740, labelY: 25 },
-            { from: 'S15', to: 'S13', label: '0',labelX: 930 }
-        ],
+        transitions: {
+            'S0': { '1': 'S1', '0': 'S2' },
+            'S1': { '1': 'S3', '0': 'S4' },
+            'S2': { '1': 'S5', '0': 'S6' },
+            'S3': { '1': 'S7', '0': 'S8' },
+            'S4': { '1': 'S9', '0': 'S6' },
+            'S5': { '1': 'S10', '0': 'S8' },
+            'S6': { '1': 'S5', '0': 'S11' },
+            'S7': { '1': 'S12', '0': 'S13' },
+            'S8': { '1': 'S9', '0': 'S6' },
+            'S9': { '1': 'S14', '0': 'S13' },
+            'S10': { '1': 'S14', '0': 'S8' },
+            'S11': { '1': 'S9', '0': 'S11' },
+            'S12': { '1': 'S15', '0': 'S13' },
+            'S13': { '1': 'S9', '0': 'S11' },
+            'S14': { '1': 'S14', '0': 'S13' },
+            'S15': { '1': 'S7', '0': 'S13' }
+        },
+        nodes: {
+            'S0': { x: 80, y: 280 },
+            'S1': { x: 220, y: 140 },
+            'S2': { x: 220, y: 420 },
+            'S3': { x: 380, y: 70 },
+            'S4': { x: 380, y: 210 },
+            'S5': { x: 380, y: 350 },
+            'S6': { x: 380, y: 490 },
+            'S7': { x: 560, y: 70 },
+            'S8': { x: 560, y: 280 },
+            'S11': { x: 560, y: 490 },
+            'S12': { x: 740, y: 70 },
+            'S9': { x: 740, y: 280 },
+            'S10': { x: 740, y: 420 },
+            'S15': { x: 920, y: 70 },
+            'S13': { x: 920, y: 280 },
+            'S14': { x: 1080, y: 280 }
+        },
         cfg: `S → X Y Z W\nX → 101 | 100 | V | U\nV → 111V | λ\nU → 1U | 0U | 11U | λ\nY → 1Y | 0Y | 01Y | λ\nZ → 111 | 000 | 101\nW → 1W | 0W | λ`,
         
         pda: [
@@ -444,7 +358,6 @@ function bindGlobalEvents() {
     document.getElementById('tab-dfa').addEventListener('click', () => switchTab('dfa'));
     document.getElementById('tab-cfg').addEventListener('click', () => switchTab('cfg'));
     document.getElementById('tab-pda').addEventListener('click', () => switchTab('pda'));
-    document.getElementById('tab-demo').addEventListener('click', () => switchTab('demo'));
     document.getElementById('btn-theme-toggle').addEventListener('click', toggleTheme);
     document.getElementById('btn-add-row').addEventListener('click', addTestRow);
     document.getElementById('btn-clear-all').addEventListener('click', clearAllTestRows);
@@ -640,9 +553,8 @@ function generateGuidedAcceptedStrings(machine, minLen, maxLen, needed, existing
         const syms = [...machine.alphabet];
         shuffleArray(syms);
         for (const sym of syms) {
-            const trans = machine.dfa.find(t => t.curr === state && t.input === sym);
-            if (trans) {
-                const nextState = trans.next;
+            if (machine.transitions[state] && machine.transitions[state][sym]) {
+                const nextState = machine.transitions[state][sym];
                 if (!isTrapState(nextState)) {
                     queue.push({ state: nextState, path: path + sym });
                 }
@@ -719,6 +631,7 @@ function replayTrace(historyIdx) {
 }
 
 let isDocked = false;
+
 
 function toggleDockMode() {
     isDocked = !isDocked;
@@ -820,6 +733,8 @@ function addTestRow() {
     const canRemove = testRowIds.length > 1;
     container.appendChild(createRowElement(id, canRemove));
     updateClearAllVisibility();
+    const input = document.getElementById(`input-${id}`);
+    if (input) input.focus();
 }
 
 function removeTestRow(id) {
@@ -968,7 +883,7 @@ function switchAlphabet(type) {
 
 function switchTab(tabName) {
     currentTab = tabName;
-    ['dfa', 'cfg', 'pda', 'demo'].forEach(t => {
+    ['dfa', 'cfg', 'pda'].forEach(t => {
         const tabBtn = document.getElementById(`tab-${t}`);
         const view = document.getElementById(`view-${t}`);
         const active = t === tabName;
@@ -976,12 +891,6 @@ function switchTab(tabName) {
         tabBtn.setAttribute('aria-selected', active ? 'true' : 'false');
         view.classList.toggle('hidden', !active);
     });
-
-    const regexCard = document.getElementById('regex-card');
-    if (regexCard) {
-        regexCard.classList.toggle('hidden', tabName === 'demo');
-    }
-
     if (tabName === 'dfa') {
         renderSVGGraph(getTraceFrameState());
         fitGraphToView();
@@ -1042,7 +951,7 @@ function updateWorkspace() {
 
 function computeGraphBaseViewBox() {
     const data = automataData[currentAlphabet];
-    const nodes = data.dfaBlocks;
+    const nodes = Object.values(data.nodes);
     const padding = 55;
     const minX = Math.min(...nodes.map(n => n.x)) - padding - 25;
     const minY = Math.min(...nodes.map(n => n.y)) - padding - 30;
@@ -1142,81 +1051,72 @@ function renderSVGGraph({ activeState = null, activeTransition = null } = {}) {
         </defs>
     `;
 
-    const nodes = {};
-    data.dfaBlocks.forEach(b => nodes[b.id] = b);
+    Object.keys(data.transitions).forEach(src => {
+        Object.keys(data.transitions[src]).forEach(sym => {
+            const dest = data.transitions[src][sym];
+            if (!data.nodes[src] || !data.nodes[dest]) return;
 
-    data.dfaLines.forEach(line => {
-        const src = line.from;
-        const dest = line.to;
-        const sym = line.label;
+            const nSrc = data.nodes[src];
+            const nDest = data.nodes[dest];
 
-        const nSrc = nodes[src];
-        const nDest = nodes[dest];
-        if (!nSrc || !nDest) return;
+            const isActiveTransition = activeTransition &&
+                activeTransition.src === src &&
+                activeTransition.dest === dest &&
+                activeTransition.sym === sym;
 
-        const activeLabels = sym.split(',').map(s => s.trim());
-        const isActiveTransition = activeTransition &&
-            activeTransition.src === src &&
-            activeTransition.dest === dest &&
-            activeLabels.includes(activeTransition.sym);
-
-        const strokeColor = isActiveTransition ? TRACE_HIGHLIGHT.edge : theme.edge;
-        const strokeWidth = isActiveTransition ? '3' : '1.5';
-        const markerId = isActiveTransition ? 'url(#arrow-trace)' : 'url(#arrow)';
-
-        let pathD = '';
-        let textX = 0;
-        let textY = 0;
-
-        if (line.isCustomPath) {
-            pathD = line.path;
-            textX = nSrc.x;
-            textY = nSrc.y - 30; // fallback if not supplied
-        } else {
-            const dx = nDest.x - nSrc.x;
-            const dy = nDest.y - nSrc.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+            const strokeColor = isActiveTransition ? TRACE_HIGHLIGHT.edge : theme.edge;
+            const strokeWidth = isActiveTransition ? '3' : '1.5';
+            const markerId = isActiveTransition ? 'url(#arrow-trace)' : 'url(#arrow)';
 
             if (src === dest) {
-                pathD = `M ${nSrc.x - 6} ${nSrc.y - 19} C ${nSrc.x - 25} ${nSrc.y - 50}, ${nSrc.x + 25} ${nSrc.y - 50}, ${nSrc.x + 6} ${nSrc.y - 19}`;
-                textX = nSrc.x;
-                textY = nSrc.y - 44;
+                svgHtml += `
+                    <path d="M ${nSrc.x - 6} ${nSrc.y - 19} C ${nSrc.x - 25} ${nSrc.y - 50}, ${nSrc.x + 25} ${nSrc.y - 50}, ${nSrc.x + 6} ${nSrc.y - 19}"
+                          fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}" marker-end="${markerId}" />
+                    <text class="graph-label" x="${nSrc.x}" y="${nSrc.y - 44}" fill="${isActiveTransition ? TRACE_HIGHLIGHT.edge : theme.label}" font-size="11" text-anchor="middle" font-family="monospace" font-weight="bold">${sym}</text>
+                `;
             } else {
+                const dx = nDest.x - nSrc.x;
+                const dy = nDest.y - nSrc.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
                 const x1 = nSrc.x + (dx / dist) * nodeRadius;
                 const y1 = nSrc.y + (dy / dist) * nodeRadius;
                 const x2 = nDest.x - (dx / dist) * nodeRadius;
                 const y2 = nDest.y - (dy / dist) * nodeRadius;
 
-                if (line.curve) {
+                let pathD = `M ${x1} ${y1} L ${x2} ${y2}`;
+                let textX = (x1 + x2) / 2;
+                let textY = (y1 + y2) / 2 - 7;
+
+                const mutualEdges = ['S9-S10', 'S10-S9', 'S13-S9', 'S9-S13'];
+                const jumpEdges = ['S10-S8', 'S15-S7'];
+                const isOverlappingLoop = mutualEdges.includes(`${src}-${dest}`) || jumpEdges.includes(`${src}-${dest}`);
+
+                if (isOverlappingLoop) {
+                    let bendMultiplier = 25;
+                    if (src === 'S10' && dest === 'S8') bendMultiplier = -60;
+                    if (src === 'S15' && dest === 'S7') bendMultiplier = -60;
+
                     const mx = (nSrc.x + nDest.x) / 2;
                     const my = (nSrc.y + nDest.y) / 2;
-                    const px = -dy / dist * line.curve;
-                    const py = dx / dist * line.curve;
+                    const px = -dy / dist * bendMultiplier;
+                    const py = dx / dist * bendMultiplier;
 
                     pathD = `M ${x1} ${y1} Q ${mx + px} ${my + py} ${x2} ${y2}`;
                     textX = mx + px * 1.2;
                     textY = my + py * 1.2;
-                } else {
-                    pathD = `M ${x1} ${y1} L ${x2} ${y2}`;
-                    textX = (x1 + x2) / 2;
-                    textY = (y1 + y2) / 2 - 7;
                 }
+
+                svgHtml += `
+                    <path d="${pathD}" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}" marker-end="${markerId}" />
+                    <text class="graph-label" x="${textX}" y="${textY}" fill="${isActiveTransition ? TRACE_HIGHLIGHT.edge : theme.label}" font-size="11" text-anchor="middle" font-family="monospace" font-weight="bold">${sym}</text>
+                `;
             }
-        }
-
-        // Apply explicit coordinate overrides
-        if (line.labelX !== undefined) textX = line.labelX;
-        if (line.labelY !== undefined) textY = line.labelY;
-
-        svgHtml += `
-            <path d="${pathD}" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}" marker-end="${markerId}" />
-            <text class="graph-label" x="${textX}" y="${textY}" fill="${isActiveTransition ? TRACE_HIGHLIGHT.edge : theme.label}" font-size="11" text-anchor="middle" font-family="monospace" font-weight="bold">${sym}</text>
-        `;
+        });
     });
 
-    data.dfaBlocks.forEach(block => {
-        const nodeId = block.id;
-        const node = block;
+    Object.keys(data.nodes).forEach(nodeId => {
+        const node = data.nodes[nodeId];
         const isAccept = data.acceptStates.includes(nodeId);
         const isStart = nodeId === data.startState;
         const isActiveNode = activeState === nodeId;
@@ -1269,9 +1169,9 @@ function escapeHtmlAttr(str) {
 }
 
 function getStateTransitionTooltip(data, nodeId) {
-    const trans = data.dfa.filter(t => t.curr === nodeId);
-    if (!trans.length) return `${nodeId}: (no outgoing transitions)`;
-    const parts = trans.map(t => `on ${t.input} → ${t.next}`);
+    const trans = data.transitions[nodeId];
+    if (!trans || !Object.keys(trans).length) return `${nodeId}: (no outgoing transitions)`;
+    const parts = Object.keys(trans).map(sym => `on ${sym} → ${trans[sym]}`);
     return `${nodeId}: ${parts.join(', ')}`;
 }
 
@@ -1449,10 +1349,8 @@ function simulateDFA(inputVal) {
             invalidChar = char;
             break;
         }
-        
-        const trans = machine.dfa.find(t => t.curr === currentState && t.input === char);
-        if (trans) {
-            const nextState = trans.next;
+        if (machine.transitions[currentState] && machine.transitions[currentState][char]) {
+            const nextState = machine.transitions[currentState][char];
             animationFrames.push({
                 node: nextState,
                 transition: { src: currentState, dest: nextState, sym: char }
@@ -1713,11 +1611,6 @@ function playTraceAnimation() {
         if (activeAnimationTimeout) clearInterval(activeAnimationTimeout);
         updateTraceControlsUI();
         return;
-    }
-
-    if (activeTrace.index >= activeTrace.frames.length - 1) {
-        activeTrace.index = 0;
-        renderTraceStep();
     }
 
     activeTrace.playing = true;

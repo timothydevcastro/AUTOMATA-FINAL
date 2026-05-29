@@ -31,26 +31,37 @@ This CFG is structurally flawless. Every single non-terminal maps directly to a 
 **Regex:**
 `(((101)+(111)*+(100))+(1+0+11)*)(1+0+01)*(111+000+101)(1+0)*`
 
-**CFG:**
+**Current CFG Implementation:**
 ```text
 S → X Y Z W
-X → 101 | 100 | 111X | U   <-- Let's look at this
+X → 101 | 100 | 111X | U
 U → 1U | 0U | 11U | λ 
 Y → 1Y | 0Y | 01Y | λ      (Perfectly matches (1+0+01)*)
 Z → 111 | 000 | 101        (Perfectly matches 111+000+101)
 W → 1W | 0W | λ            (Perfectly matches (1+0)*)
 ```
 
-**Conclusion:**
-`Y`, `Z`, and `W` are mapped perfectly. 
-
-However, for `X`, the regex block `(((101)+(111)*+(100))+(1+0+11)*)` is a pure **Union (OR)** of four distinct possibilities. 
-Your current rule `X → 101 | 100 | 111X | U` uses `111X` which loops back onto `X`. Technically, this means it generates `(111)*` *concatenated* with the other choices (e.g. allowing `111` followed by `101`). 
-
-Because `U` generates all combinations of 0s and 1s anyway, it doesn't break the actual language accepted (it's mathematically equivalent). But if you want to be **academically, structurally perfect** so it exactly mirrors a union, you should separate `(111)*` into its own variable so it stands alone, like this:
-
+**Proposed CFG Implementation:**
 ```text
+S → X Y Z W
 X → 101 | 100 | V | U
 V → 111V | λ
 U → 1U | 0U | 11U | λ
+Y → 1Y | 0Y | 01Y | λ      (Perfectly matches (1+0+01)*)
+Z → 111 | 000 | 101        (Perfectly matches 111+000+101)
+W → 1W | 0W | λ            (Perfectly matches (1+0)*)
 ```
+
+---
+
+### The Structural Difference in Variable `X`
+The first block of the regex is a pure **Union (OR)** of four options:
+$$\underbrace{((101) + (111)^* + (100)) + (1+0+11)^*}_{\text{Variable } X}$$
+
+* **In the Current CFG:** The rule `X → 111X` loops back to `X` itself. This behaves like a **concatenation** of `(111)*` with any other option in `X` (e.g., we can generate `111` followed by `101`, which is not allowed by a pure OR in that specific block).
+* **In the Proposed CFG:** The rule `X → 101 | 100 | V | U` with `V → 111V | λ` isolates the `(111)*` part into variable `V`. Once you choose `V`, you can only generate multiples of `111` and cannot loop back to pick `101` or `100`, perfectly matching the regex's Union structure.
+
+### Mathematical Equivalence
+Because the rule `U` generates all combinations of `0`s and `1`s anyway, both versions are mathematically equivalent and accept the exact same set of strings. 
+
+However, the **Proposed CFG** is 100% structurally accurate to the layout of the regex.
